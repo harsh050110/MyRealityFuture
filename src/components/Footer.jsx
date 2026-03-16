@@ -37,19 +37,6 @@ export default function Footer() {
             <li>Make Me Sell</li>
             <li>MyRealityFuture Luxury</li>
             <li>Find an Agent</li>
-            <li>Mortgage Calculator</li>
-            <li>MyRealityFuture Academy</li>
-            <li>MyRealityFuture Plus</li>
-            <li>MyRealityFuture Cares</li>
-            <li>Diversity & Inclusion</li>
-            <li>Neighborhood Guides</li>
-            <li>New Development</li>
-            <li>Commercial</li>
-            <li>Sports & Entertainment</li>
-            <li>Military</li>
-            <li>Ranch and Land</li>
-            <li>Recently Sold Homes</li>
-            <li>Sitemap</li>
           </ul>
         </div>
 
