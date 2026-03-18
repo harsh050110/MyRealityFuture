@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import NeighborhoodCard from "./NeighborhoodCard";
 
 const neighborhoods = [
@@ -28,6 +29,7 @@ const neighborhoods = [
 ];
 
 const Neighborhoods = () => {
+  const navigate = useNavigate();
   return (
     <section className="bg-[#0F172A] py-24 px-20">
 
@@ -52,10 +54,12 @@ const Neighborhoods = () => {
       </div>
 
       {/* Button */}
-
-      <button className="bg-blue-600 text-white px-8 py-4 rounded-md font-medium hover:bg-blue-700 transition">
-        View More Neighborhoods →
-      </button>
+      <button
+  onClick={() => navigate("/neighborhoods")}
+  className="bg-blue-600 text-white px-8 py-4 rounded-md font-medium hover:bg-blue-700 transition"
+>
+  View More Neighborhoods →
+</button>
 
     </section>
   );

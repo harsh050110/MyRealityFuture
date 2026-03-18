@@ -1,37 +1,74 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 
-    bg-white/10 backdrop-blur-lg border-b border-white/20 shadow-lg">
+    <nav
+      className="fixed top-0 left-0 w-full z-[9999]
+      bg-black/60 backdrop-blur-lg border-b border-white/20 shadow-lg pointer-events-auto"
+    >
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-10 py-4 text-white hover:text-gray-300 transition">
 
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between px-10 py-4 text-white">
-        <div className="flex items-center">
-  <img
-    src="/logo.png"
-    alt="MyRealityFuture"
-    className="h-16 w-auto"
-  />
-</div>
+        {/* Logo → Home */}
+        <div
+          className="flex items-center cursor-pointer"
+          onClick={() => navigate("/")}
+        >
+          <img
+            src="/logo.png"
+            alt="MyRealityFuture"
+            className="h-16 w-auto"
+          />
+        </div>
 
-        <ul className="flex gap-8 text-[15px] font-medium">
-          <li className="cursor-pointer hover:text-gray-300">Buy</li>
-          <li className="cursor-pointer hover:text-gray-300">Rent</li>
-          <li className="cursor-pointer hover:text-gray-300">Sell</li>
-          <li className="cursor-pointer hover:text-gray-300">Compass Exclusives</li>
-          <li className="cursor-pointer hover:text-gray-300">New Development</li>
-          <li className="cursor-pointer hover:text-gray-300">Agents</li>
-        </ul>
+        {/* Menu */}
+        <div className="flex gap-8 text-[15px] font-medium">
 
-        <Link
-          to="/login"
-          className="text-[15px] hover:text-gray-300"
+          <button
+            onClick={() => navigate("/buy")}
+            className="cursor-pointer hover:text-gray-300 transition"
+          >
+            Buy
+          </button>
+
+          <button
+            onClick={() => navigate("/rent")}
+            className="cursor-pointer hover:text-gray-300 transition"
+          >
+            Rent
+          </button>
+
+          <button
+            onClick={() => navigate("/sell")}
+            className="cursor-pointer hover:text-gray-300 transition"
+          >
+            Sell
+          </button>
+
+          <span className="cursor-pointer hover:text-gray-300">
+             Exclusives
+          </span>
+
+          <span className="cursor-pointer hover:text-gray-300">
+            New Development
+          </span>
+
+          <span className="cursor-pointer hover:text-gray-300">
+            Agents
+          </span>
+
+        </div>
+
+        {/* Auth */}
+        <button
+          onClick={() => navigate("/login")}
+          className="text-[15px] hover:text-gray-300 transition"
         >
           Register / Sign In
-        </Link>
+        </button>
 
       </div>
-
     </nav>
   );
 }
