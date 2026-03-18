@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function Navbar() {
           onClick={() => navigate("/")}
         >
           <img
-            src="/logo.png"
+            src={logo}
             alt="MyRealityFuture"
             className="h-16 w-auto"
           />
