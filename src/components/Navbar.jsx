@@ -15,6 +15,7 @@ export default function Navbar() {
       >
         <div className="max-w-[1400px] mx-auto flex items-center justify-between px-10 py-4 text-white">
 
+          {/*  Logo */}
           <div
             className="flex items-center cursor-pointer"
             onClick={() => navigate("/")}
@@ -26,6 +27,7 @@ export default function Navbar() {
             />
           </div>
 
+          {/*  Menu */}
           <div className="flex gap-8 text-[15px] font-medium">
 
             <button
@@ -62,6 +64,7 @@ export default function Navbar() {
             </span>
           </div>
 
+          {/*  Auth Button */}
           <button
             onClick={() => setOpenModal(true)}
             className="text-[15px] hover:text-gray-300 transition"
@@ -72,6 +75,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/*  Auth Modal */}
       <AuthModal
         isOpen={openModal}
         onClose={() => setOpenModal(false)}

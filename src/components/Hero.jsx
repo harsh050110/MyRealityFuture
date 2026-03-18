@@ -1,8 +1,31 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+// 🔥 Import your data
+import buyProperties from "../data/properties";
+import rentProperties from "../data/rentProperties";
 
 const Hero = () => {
-
   const [activeTab, setActiveTab] = useState("buy");
+  const navigate = useNavigate();
+
+  // 🔥 Extract unique locations
+  const buyLocations = [...new Set(buyProperties.map(p => p.address))];
+  const rentLocations = [...new Set(rentProperties.map(p => p.address))];
+
+  // 🔥 Handle tab click
+  const handleTabClick = (tab) => {
+    if (tab === "sell") {
+      navigate("/sell"); // 🚀 direct redirect
+    } else {
+      setActiveTab(tab);
+    }
+  };
+
+  // 🔥 Handle location click
+  const handleLocationClick = (location) => {
+    navigate(`/${activeTab}?location=${location}`);
+  };
 
   return (
     <section
@@ -12,56 +35,43 @@ const Hero = () => {
           "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c')",
       }}
     >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative text-center text-white z-10 px-4">
-        <h1 className="text-6xl font-serif mb-8">Find your place</h1>
+      {/* Content */}
+      <div className="relative text-center text-white z-10 px-4 w-full">
+        <h1 className="text-6xl font-serif mb-8">
+          Find your place
+        </h1>
 
-        <div className="bg-white rounded shadow-xl w-full max-w-3xl mx-auto">
+        <div className="bg-white rounded-xl shadow-2xl w-full max-w-3xl mx-auto overflow-hidden">
 
-          {/* Tabs */}
+          {/* 🔥 Tabs */}
           <div className="flex">
-
-            <button
-              onClick={() => setActiveTab("buy")}
-              className={`flex-1 py-4 font-medium transition ${
-                activeTab === "buy"
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-black"
-              }`}
-            >
-              Buy
-            </button>
-
-            <button
-              onClick={() => setActiveTab("rent")}
-              className={`flex-1 py-4 font-medium transition ${
-                activeTab === "rent"
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-black"
-              }`}
-            >
-              Rent
-            </button>
-
-            <button
-              onClick={() => setActiveTab("sell")}
-              className={`flex-1 py-4 font-medium transition ${
-                activeTab === "sell"
-                  ? "bg-blue-600 text-white"
-                  : "bg-gray-100 text-black"
-              }`}
-            >
-              Sell
-            </button>
-
+            {["buy", "rent", "sell"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => handleTabClick(tab)}
+                className={`flex-1 py-4 font-medium capitalize transition ${
+                  activeTab === tab
+                    ? "bg-blue-600 text-white"
+                    : "bg-gray-100 text-black hover:bg-gray-200"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
           </div>
 
-          {/* Search */}
+          {/* 🔍 Search */}
           <div className="flex">
             <input
               type="text"
-              placeholder="City, Neighborhood, Address, ZIP..."
+              placeholder={`Search ${
+                activeTab === "buy"
+                  ? "homes to buy"
+                  : "homes to rent"
+              }...`}
               className="flex-1 p-5 outline-none text-black"
             />
 
@@ -69,6 +79,33 @@ const Hero = () => {
               🔍
             </button>
           </div>
+
+          {/* 🔥 LOCATION SUGGESTIONS */}
+          {(activeTab === "buy" || activeTab === "rent") && (
+            <div className="p-4 text-left bg-white border-t">
+
+              <p className="text-sm text-gray-500 mb-2">
+                {activeTab === "buy"
+                  ? "Available places to buy"
+                  : "Available places to rent"}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                {(activeTab === "buy" ? buyLocations : rentLocations).map(
+                  (loc, index) => (
+                    <span
+                      key={index}
+                      onClick={() => handleLocationClick(loc)}
+                      className="bg-gray-100 px-4 py-2 rounded-full text-sm cursor-pointer hover:bg-blue-600 hover:text-white transition"
+                    >
+                      {loc}
+                    </span>
+                  )
+                )}
+              </div>
+
+            </div>
+          )}
 
         </div>
       </div>
