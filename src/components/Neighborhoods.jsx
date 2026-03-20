@@ -1,30 +1,36 @@
 import { useNavigate } from "react-router-dom";
 import NeighborhoodCard from "./NeighborhoodCard";
+import DelhiImg from "../assets/New Delhi.jpg";
+import HaryanaImg from "../assets/haryana.jpg";
+import GujaratImg from "../assets/Gujarat.jpg";
+import MumbaiImg from "../assets/Mumbai.jpeg";
+import PuneImg from "../assets/Pune.jpg";
+import GoaImg from "../assets/goa.jpg";
 
 const neighborhoods = [
   {
     title: "New Delhi",
-    image: "https://images.unsplash.com/photo-1486308510493-aa64833637b2"
+    image: DelhiImg
   },
   {
     title: "Haryana",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
+    image: HaryanaImg
   },
   {
     title: "Gujarat",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
+    image: GujaratImg
   },
   {
     title: "Mumbai",
-    image: "https://images.unsplash.com/photo-1494526585095-c41746248156"
+    image: MumbaiImg
   },
   {
     title: "Pune",
-    image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+    image: PuneImg
   },
   {
     title: "Goa",
-    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade"
+    image: GoaImg
   }
 ];
 

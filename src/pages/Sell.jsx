@@ -64,9 +64,6 @@ export default function Sell() {
 
             <div className="flex gap-4 justify-center">
               <button className="bg-yellow-600 text-white px-6 py-2">
-                Find Your Agent
-              </button>
-              <button className="bg-yellow-600 text-white px-6 py-2">
                 Contact Office
               </button>
             </div>

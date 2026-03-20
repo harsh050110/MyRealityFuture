@@ -1,4 +1,13 @@
 import {Link } from "react-router-dom";
+import Img1 from "../assets/dubai.jpg";
+import Img2 from "../assets/London.jpeg";
+import Img3 from "../assets/Singapore.jpeg";
+import Img4 from "../assets/shanghai.jpeg";
+import Img5 from "../assets/miami.jpg";
+import Img6 from "../assets/Beijing.jpeg";
+import Img7 from "../assets/Lebanon.jpg";
+import Img8 from "../assets/Florida.jpg";
+
 export default function ExploreHomes() {
 
   return (
@@ -20,7 +29,7 @@ export default function ExploreHomes() {
 
           {/* Large Card */}
           <div className="row-span-2 rounded-xl overflow-hidden relative">
-            <img src="/img1.jpg" className="w-full h-full object-cover" />
+            <img src={Img1} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Dubai, UAE,Qatar
             </h3>
@@ -33,7 +42,7 @@ export default function ExploreHomes() {
           </div>
 
           {/* Review Card */}
-          <div className="bg-gray-600 text-white rounded-xl p-6">
+          <div className="bg-yellow-700 text-white rounded-xl p-6">
             <p className="font-semibold">MyRealityFuture User</p>
             <p className="mt-2 text-sm">
               I just moved to the neighborhood 2 years ago and love it!
@@ -42,7 +51,7 @@ export default function ExploreHomes() {
 
           {/* Image Card */}
           <div className="rounded-xl overflow-hidden relative">
-            <img src="/img2.jpg" className="w-full h-full object-cover" />
+            <img src={Img2} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               London, U.K
             </h3>
@@ -56,7 +65,7 @@ export default function ExploreHomes() {
 
           {/* Tall Card */}
           <div className="row-span-2 rounded-xl overflow-hidden relative">
-            <img src="/img3.jpg" className="w-full h-full object-cover" />
+            <img src={Img3} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Singapore
             </h3>
@@ -70,7 +79,7 @@ export default function ExploreHomes() {
 
           {/* Bottom Cards */}
           <div className="rounded-xl overflow-hidden relative">
-            <img src="/img4.jpg" className="w-full h-full object-cover" />
+            <img src={Img4} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Shanghai
             </h3>
@@ -83,7 +92,7 @@ export default function ExploreHomes() {
           </div>
 
           <div className="rounded-xl overflow-hidden relative">
-            <img src="/img5.jpg" className="w-full h-full object-cover" />
+            <img src={Img5} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Miami,FL
             </h3>
@@ -97,7 +106,7 @@ export default function ExploreHomes() {
 
           {/* More Cards */}
           <div className="rounded-xl overflow-hidden relative">
-            <img src="/img6.jpg" className="w-full h-full object-cover" />
+            <img src={Img6} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Beijing
             </h3>
@@ -109,7 +118,7 @@ export default function ExploreHomes() {
   </Link>
           </div>
 
-          <div className="bg-gray-700 text-white rounded-xl p-6">
+          <div className="bg-blue-900 text-white rounded-xl p-6">
             <p className="font-semibold">Brianne</p>
             <p className="mt-2 text-sm">
               A good mix of young adults and family friendly activities.
@@ -117,7 +126,7 @@ export default function ExploreHomes() {
           </div>
 
           <div className="row-span-2 rounded-xl overflow-hidden relative">
-            <img src="/img7.jpg" className="w-full h-full object-cover" />
+            <img src={Img7} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Lebanon
             </h3>
@@ -130,7 +139,7 @@ export default function ExploreHomes() {
           </div>
 
           <div className="rounded-xl overflow-hidden relative">
-            <img src="/img8.jpg" className="w-full h-full object-cover" />
+            <img src={Img8} className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
               Florida
             </h3>
@@ -141,7 +150,7 @@ export default function ExploreHomes() {
     View Homes →
   </Link>
           </div>
-                    <div className="bg-gray-700 text-white rounded-xl p-6">
+                    <div className="bg-green-800 text-white rounded-xl p-6">
             <p className="font-semibold">Brianne</p>
             <p className="mt-2 text-sm">
               A good mix of young adults and family friendly activities.
