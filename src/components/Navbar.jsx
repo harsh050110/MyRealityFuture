@@ -52,16 +52,9 @@ export default function Navbar() {
             </button>
 
             <span className="cursor-pointer hover:text-gray-300">
-              Exclusives
-            </span>
-
-            <span className="cursor-pointer hover:text-gray-300">
               New Development
             </span>
-
-            <span className="cursor-pointer hover:text-gray-300">
-              Agents
-            </span>
+            
           </div>
 
           {/*  Auth Button */}

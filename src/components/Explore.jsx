@@ -6,7 +6,7 @@ export default function ExploreHomes() {
     <div className="max-w-[1400px] mx-auto px-6 py-20">
 
       <h2 className="text-4xl font-bold text-center mb-4 text-gray-50">
-        Explore homes on Trulia
+        Explore homes on MyRealityFuture
       </h2>
 
       <p className="text-center text-gray-400 mb-12">
@@ -22,7 +22,7 @@ export default function ExploreHomes() {
           <div className="row-span-2 rounded-xl overflow-hidden relative">
             <img src="/img1.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Atlanta, GA
+              Dubai, UAE,Qatar
             </h3>
               <Link
     to="/atlanta"
@@ -34,7 +34,7 @@ export default function ExploreHomes() {
 
           {/* Review Card */}
           <div className="bg-gray-600 text-white rounded-xl p-6">
-            <p className="font-semibold">Trulia User</p>
+            <p className="font-semibold">MyRealityFuture User</p>
             <p className="mt-2 text-sm">
               I just moved to the neighborhood 2 years ago and love it!
             </p>
@@ -44,7 +44,7 @@ export default function ExploreHomes() {
           <div className="rounded-xl overflow-hidden relative">
             <img src="/img2.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Scottsdale, AZ
+              London, U.K
             </h3>
               <Link
     to="/Scottsdale"
@@ -58,7 +58,7 @@ export default function ExploreHomes() {
           <div className="row-span-2 rounded-xl overflow-hidden relative">
             <img src="/img3.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Oakland, CA
+              Singapore
             </h3>
               <Link
     to="/oakland"
@@ -72,7 +72,7 @@ export default function ExploreHomes() {
           <div className="rounded-xl overflow-hidden relative">
             <img src="/img4.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Austin, TX
+              Shanghai
             </h3>
               <Link
     to="/austin"
@@ -85,7 +85,7 @@ export default function ExploreHomes() {
           <div className="rounded-xl overflow-hidden relative">
             <img src="/img5.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Boston, MA
+              Miami,FL
             </h3>
               <Link
     to="/boston"
@@ -99,7 +99,7 @@ export default function ExploreHomes() {
           <div className="rounded-xl overflow-hidden relative">
             <img src="/img6.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Miami, FL
+              Beijing
             </h3>
               <Link
     to="/miami"
@@ -119,7 +119,7 @@ export default function ExploreHomes() {
           <div className="row-span-2 rounded-xl overflow-hidden relative">
             <img src="/img7.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Denver, CO
+              Lebanon
             </h3>
               <Link
     to="/denver"
@@ -132,7 +132,7 @@ export default function ExploreHomes() {
           <div className="rounded-xl overflow-hidden relative">
             <img src="/img8.jpg" className="w-full h-full object-cover" />
             <h3 className="absolute top-4 left-4 text-white text-xl font-bold">
-              Dallas, TX
+              Florida
             </h3>
               <Link
     to="/dallas"
@@ -140,6 +140,12 @@ export default function ExploreHomes() {
   >
     View Homes →
   </Link>
+          </div>
+                    <div className="bg-gray-700 text-white rounded-xl p-6">
+            <p className="font-semibold">Brianne</p>
+            <p className="mt-2 text-sm">
+              A good mix of young adults and family friendly activities.
+            </p>
           </div>
 
         </div>

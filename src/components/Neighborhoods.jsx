@@ -3,27 +3,27 @@ import NeighborhoodCard from "./NeighborhoodCard";
 
 const neighborhoods = [
   {
-    title: "New York City",
+    title: "New Delhi",
     image: "https://images.unsplash.com/photo-1486308510493-aa64833637b2"
   },
   {
-    title: "The Hamptons",
+    title: "Haryana",
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
   },
   {
-    title: "South Florida",
+    title: "Gujarat",
     image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511"
   },
   {
-    title: "Greater Boston",
+    title: "Mumbai",
     image: "https://images.unsplash.com/photo-1494526585095-c41746248156"
   },
   {
-    title: "Southern California",
+    title: "Pune",
     image: "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
   },
   {
-    title: "DC, Maryland, & Virginia",
+    title: "Goa",
     image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade"
   }
 ];

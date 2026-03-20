@@ -22,9 +22,9 @@ const Help = () => {
 
         <div>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
-            className="w-20 mx-auto mb-6"
-          />
+  src="https://cdn-icons-png.flaticon.com/512/69/69524.png"
+  className="w-20 mx-auto mb-6 invert brightness-0"
+/>
           <h3 className="text-2xl font-bold mb-4 text-gray-50">Rent an apartment</h3>
           <p className="text-gray-400 mb-6">
             Easily find apartments with advanced filtering.
@@ -36,9 +36,9 @@ const Help = () => {
 
         <div>
           <img
-            src="https://cdn-icons-png.flaticon.com/512/535/535239.png"
-            className="w-20 mx-auto mb-6"
-          />
+  src="https://cdn-icons-png.flaticon.com/512/535/535239.png"
+  className="w-20 mx-auto mb-6 invert brightness-0"
+/>
           <h3 className="text-2xl font-bold mb-4 text-gray-50">See neighborhoods</h3>
           <p className="text-gray-400 mb-6">
             Discover insights about communities.
