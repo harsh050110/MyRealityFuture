@@ -35,7 +35,7 @@ export default function Sell() {
 
         <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
           <div className="bg-white/10 backdrop-blur-xl p-10 max-w-2xl text-center border border-white/10 shadow-xl">
-            <h1 className="text-4xl font-serif mb-4">Sell With Us</h1>
+            <h1 className="text-4xl font-serif mb-4">Rent With Us</h1>
             <p className="text-gray-300 leading-relaxed">
               In the luxury real estate market, brand, connections, and experience matter.
               We position your property to attract the right buyers and maximize value.
