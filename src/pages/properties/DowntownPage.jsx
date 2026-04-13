@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {Link} from "react-router-dom";
 
 const images = [
   "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
@@ -51,7 +52,8 @@ export default function DowntownPage() {
 
           <div className="flex gap-4 mt-6">
             <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg">Get Price</button>
-            <button className="border px-6 py-3 rounded-lg">Visit</button>
+            
+            <Link to ="/contactus"><button className="border px-6 py-3 rounded-lg">Visit</button></Link>
             <button className="bg-green-500 px-6 py-3 rounded-lg">WhatsApp</button>
           </div>
         </div>

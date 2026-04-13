@@ -51,7 +51,7 @@ export default function SkylinePage() {
 
           <div className="flex gap-4 mt-6">
             <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg">Get Price</button>
-            <button className="border px-6 py-3 rounded-lg">Visit</button>
+            <Link to ="/contactus"><button className="border px-6 py-3 rounded-lg">Visit</button></Link>
             <button className="bg-green-500 px-6 py-3 rounded-lg">WhatsApp</button>
           </div>
         </div>
