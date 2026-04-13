@@ -11,14 +11,14 @@ import Img8 from "../assets/Florida.jpg";
 export default function ExploreHomes() {
 
   return (
-    <section className="bg-[#0F172A] py-20">
+    <section className="bg-white py-20">
     <div className="max-w-[1400px] mx-auto px-6 py-20">
 
-      <h2 className="text-4xl font-bold text-center mb-4 text-gray-50">
+      <h2 className="text-4xl font-bold text-center mb-4 text-black">
         Explore homes on MyRealityFuture
       </h2>
 
-      <p className="text-center text-gray-400 mb-12">
+      <p className="text-center text-gray-800 mb-12">
         Take a deep dive and browse homes for sale.
       </p>
 

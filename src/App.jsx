@@ -6,6 +6,12 @@ import NeighborhoodPage from "./components/NeighborhoodPage";
 import Buy from "./pages/Buy";
 import Rent from "./pages/Rent";
 import Sell from "./pages/Sell";
+import NewDevelopmentsUI from "./pages/New";
+import GPT from "./pages/GPT";
+import SkylinePage from "./pages/properties/Skyline";
+import DowntownPage from "./pages/properties/DowntownPage";
+import OceanPage from "./pages/properties/OceanPage";
+import ContactUs from "./pages/contactus";
 
 function App() {
   return (
@@ -22,6 +28,12 @@ function App() {
           {
           <Route path="/rent" element={<Rent />} />}
           <Route path="/sell" element={< Sell />}/>
+          <Route path="/new" element={<NewDevelopmentsUI/>}/>
+          <Route path="/gpt" element={<GPT/>}/>
+          <Route path="/property/skyline" element={<SkylinePage />}/>
+          <Route path="/property/downtown" element={<DowntownPage/>}/>
+          <Route path ="/property/ocean" element={<OceanPage/>}/>
+          <Route path ="/contactus" element ={<ContactUs/>}/>
         </Routes>
 
       </div>

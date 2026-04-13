@@ -1,94 +1,179 @@
-import Navbar from "../components/Navbar";
+import React from "react";
+import { motion } from "framer-motion";
 
-export default function Sell() {
+export default function SellPropertyUI() {
   return (
-    <div className="bg-[#f5f5f5] text-gray-800">
+    <div className="bg-black text-white font-sans overflow-hidden">
 
-      <Navbar />
-
-      {/* 🔥 HERO SECTION */}
-      <section className="relative h-[80vh] w-full">
+      {/* HERO */}
+      <section className="h-screen relative flex items-center justify-center text-center">
         <img
-          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
-          className="w-full h-full object-cover"
+          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa"
+          className="absolute w-full h-full object-cover opacity-40"
         />
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/80 backdrop-blur-md p-10 max-w-2xl text-center shadow-xl">
-            <h1 className="text-4xl font-serif mb-4">Sell With Us</h1>
-            <p className="text-gray-600 leading-relaxed">
-              In the luxury real estate market, a globally recognized brand matters.
-              Connections matter. Experience, innovation, and results matter.
-              And that is why the most astute property owners consistently turn to us.
-            </p>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 max-w-3xl"
+        >
+          <h1 className="text-5xl font-bold mb-4">
+            Sell Smart. Not Just Fast.
+          </h1>
+          <p className="text-gray-300 text-lg">
+            Strategic selling with market insight, right pricing, and the right buyers.
+          </p>
+        </motion.div>
       </section>
 
-      {/* 🔥 BRAND MATTERS SECTION */}
-      <section className="max-w-6xl mx-auto py-16 px-6">
-        <div className="grid md:grid-cols-2 gap-10 bg-white shadow-lg">
-
-          {/* Image */}
-          <img
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e"
-            className="w-full h-full object-cover"
-          />
-
-          {/* Text */}
-          <div className="flex flex-col justify-center p-10">
-            <h2 className="text-3xl font-serif mb-4">Brand Matters</h2>
-            <p className="text-gray-600 leading-relaxed">
-              Through our affiliation with a globally recognized brand, we enhance
-              the desirability of the properties we market and sell.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 🔥 CTA SECTION */}
-      <section className="relative h-[60vh]">
-        <img
-          src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"
-          className="w-full h-full object-cover"
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="bg-white/80 backdrop-blur-md p-10 text-center shadow-xl">
-            <h2 className="text-3xl font-serif mb-4">
-              Find an Expert in Your Market
-            </h2>
-            <p className="text-gray-600 mb-6">
-              Contact us to value your property or learn more.
-            </p>
-
-            <div className="flex gap-4 justify-center">
-              <button className="bg-yellow-600 text-white px-6 py-2">
-                Contact Office
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 🔥 NEWSLETTER */}
-      <section className="max-w-6xl mx-auto py-16 px-6">
-        <h2 className="text-3xl font-serif mb-6">
-          Get luxury real estate updates in your inbox
+      {/* WHO THIS IS FOR */}
+      <section className="p-12 bg-white">
+        <h2 className="text-3xl font-semibold mb-10 text-center">
+          Who This Is For
         </h2>
 
-        <div className="flex gap-4">
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="flex-1 border px-4 py-3 outline-none"
-          />
-          <button className="bg-yellow-600 text-white px-6">
-            Subscribe
-          </button>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            "Right Buyer Focus",
+            "Investor Exit Strategy",
+            "Low Inquiry Problems",
+            "Discreet Handling",
+            "NRI / HNI Owners",
+            "Pricing Confusion",
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ y: -10 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-[#D4AF37] p-6 rounded-xl text-center text-black"
+            >
+              {item}
+            </motion.div>
+          ))}
         </div>
       </section>
 
+      {/* SERVICES */}
+      <section className="p-12 bg-white">
+        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
+          What We Help You With
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            "Strategic Property Positioning",
+            "Accurate Pricing Strategy",
+            "Targeted Buyer Reach",
+            "Presentation Guidance",
+            "Negotiation Support",
+            "Documentation Assistance",
+          ].map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-r from-[#D4AF37] to-gray-800 p-6 rounded-xl shadow-lg text-black"
+            >
+              <h3 className="text-xl font-semibold">{item}</h3>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROCESS */}
+      <section className="p-12 bg-white">
+        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
+          How Our Selling Process Works
+        </h2>
+
+        <div className="grid md:grid-cols-5 gap-4">
+          {[
+            "Assessment",
+            "Pricing",
+            "Targeting",
+            "Showcasing",
+            "Closure",
+          ].map((step, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.1 }}
+              className="bg-gradient-to-r from-[#D4AF37] to-gray-900 p-6 rounded-xl text-center border border-gray-700 text-black"
+            >
+              <p className="font-semibold">{step}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* PROPERTY TYPES */}
+      <section className="p-12 bg-white">
+        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
+          Property Types We Handle
+        </h2>
+
+        <div className="grid md:grid-cols-4 gap-6">
+          {["Residential", "Commercial", "Land", "Luxury"].map((type, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="bg-gradient-to-r from-[#D4AF37] to-gray-900 p-6 rounded-xl text-center text-black"
+            >
+              {type}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* FORM */}
+      <section className="p-12 bg-white">
+        <h2 className="text-3xl font-semibold mb-8 text-center text-black">
+          List Your Property
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Full Name" />
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Phone Number" />
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Location" />
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Type" />
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Expected Price" />
+          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Status" />
+          <input className="p-3 rounded bg-[#e8e6de] col-span-2" placeholder="Reason for Selling" />
+          <textarea className="p-3 rounded bg-[#e8e6de] col-span-2" placeholder="Additional Details" />
+        </div>
+
+        <div className="text-center mt-6">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-[#D4AF37] text-black px-8 py-3 rounded-lg font-semibold"
+          >
+            List My Property
+          </motion.button>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="p-16 text-center bg-white text-black">
+        <motion.h2
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-3xl md:text-4xl font-bold"
+        >
+          The Right Sale Isn’t About Speed — It’s About Strategy.
+        </motion.h2>
+        <p className="text-black mt-4">
+          We position, price, and present your property for the best outcome.
+        </p>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="p-6 text-center text-black bg-white">
+        <p>📞 +91-9650304018 | 🌐 myrealtyfuture.com</p>
+      </footer>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section className="bg-[#0F172A] text-white py-24 px-6">
+    <section className="bg-white text-[#111827] py-24 px-6">
 
       <div className="max-w-7xl mx-auto">
 
@@ -19,12 +19,12 @@ const About = () => {
 
           {/* 📝 LEFT CONTENT */}
           <div>
-            <p className="text-gray-300 leading-relaxed mb-6">
+            <p className="text-[#111827] leading-relaxed mb-6">
               Based in Noida, My Realty Future is a premium real estate advisory
               firm serving clients across India and international markets.
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-[#111827] leading-relaxed">
               Our philosophy is refined and client-centric — we believe property
               acquisition is not a transaction. It is a strategic decision shaping
               your financial and lifestyle future.
@@ -36,7 +36,7 @@ const About = () => {
 
             {/* INDIA */}
             <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-4 text-white">
+              <h3 className="text-lg font-semibold mb-4 text-[#111827]">
                 🇮🇳 India Presence
               </h3>
 
@@ -54,7 +54,7 @@ const About = () => {
                 ].map((city, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-blue-600 transition"
+                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-[#D4AF37] transition"
                   >
                     {city}
                   </div>
@@ -64,7 +64,7 @@ const About = () => {
 
             {/* GLOBAL */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-white">
+              <h3 className="text-lg font-semibold mb-4 text-[#111827]">
                 🌎 Global Markets
               </h3>
 
@@ -78,7 +78,7 @@ const About = () => {
                 ].map((city, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-purple-600 transition"
+                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-[#D4AF37] transition"
                   >
                     {city}
                   </div>
@@ -94,17 +94,17 @@ const About = () => {
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6">
             <h4 className="text-3xl font-semibold mb-2">9+</h4>
-            <p className="text-gray-400 text-sm">Indian Cities Covered</p>
+            <p className="text-[#111827] text-sm">Indian Cities Covered</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6">
             <h4 className="text-3xl font-semibold mb-2">5+</h4>
-            <p className="text-gray-400 text-sm">Global Markets</p>
+            <p className="text-[#111827] text-sm">Global Markets</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 rounded-xl p-6">
             <h4 className="text-3xl font-semibold mb-2">100%</h4>
-            <p className="text-gray-400 text-sm">Client-Centric Approach</p>
+            <p className="text-[#111827] text-sm">Client-Centric Approach</p>
           </div>
 
         </div>
