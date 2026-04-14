@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
+import pool from "../../assets/pool.jpg";
+import clubhouse from "../../assets/clubhouse.jpg";
+import gym from "../../assets/gym.jpg";
+import garden from "../../assets/garden.jpg";
+import security from "../../assets/secuirty.jpg";
 
 const images = [
   "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
   "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85",
   "https://images.unsplash.com/photo-1499793983690-e29da59ef1c2",
+];
+
+const amenities = [
+  { name: "Private Pool", img: pool },
+  { name: "Clubhouse", img: clubhouse },
+  { name: "Gym", img: gym },
+  { name: "Garden", img: garden },
+  { name: "Security", img: security },
 ];
 
 export default function OceanPage() {
@@ -13,14 +27,14 @@ export default function OceanPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
+    }, 3500);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="bg-white text-black font-sans ">
+    <div className="bg-[#0b0b0b] text-white font-sans">
 
-      {/* HERO SLIDER */}
+      {/* HERO */}
       <section className="relative h-[90vh] overflow-hidden">
         <AnimatePresence>
           <motion.img
@@ -34,110 +48,171 @@ export default function OceanPage() {
           />
         </AnimatePresence>
 
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/70" />
 
         <div className="relative z-10 p-10 max-w-4xl">
-          <h1 className="text-5xl font-bold">Ocean Pearl Villas</h1>
+          <h1 className="text-6xl font-bold">Ocean Pearl Villas</h1>
           <p className="mt-2 text-gray-300">📍 Goa, India</p>
           <p className="text-gray-400">🏗 Developer: Tata Housing</p>
-          <p className="mt-2 text-xl font-semibold">₹2.5Cr onwards</p>
+          <p className="mt-3 text-2xl text-yellow-400 font-semibold">₹2.5Cr onwards</p>
           <p className="text-gray-400">Luxury Beach Villas</p>
 
-          <div className="mt-4 text-sm text-gray-300 space-y-1">
+          <div className="mt-5 space-y-1 text-gray-300">
             <p>✔ Beachfront premium location</p>
             <p>✔ High rental income (tourism hotspot)</p>
             <p>✔ Ideal for luxury lifestyle & holiday homes</p>
           </div>
 
-          <div className="flex gap-4 mt-6">
-            <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg">Get Price</button>
-            <Link to ="/contactus"><button className="border px-6 py-3 rounded-lg">Visit</button></Link>
-            <button className="bg-green-500 px-6 py-3 rounded-lg">WhatsApp</button>
+          <div className="flex gap-4 mt-8">
+            <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-6 py-3 rounded-xl hover:scale-105 transition">
+              Get Price
+            </button>
+
+            <Link to="/contactus">
+              <button className="border border-white/40 px-6 py-3 rounded-xl hover:bg-white hover:text-black transition">
+                Visit
+              </button>
+            </Link>
+
+            <button className="bg-green-500 px-6 py-3 rounded-xl hover:scale-105 transition">
+              WhatsApp
+            </button>
           </div>
         </div>
       </section>
 
       {/* OVERVIEW */}
-      <section className="p-12 max-w-5xl mx-auto">
-        <h2 className="text-3xl mb-4">Property Overview</h2>
-        <p className="text-gray-900">
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-4xl mb-6">Property Overview</h2>
+        <p className="text-gray-300">
           A premium beachfront villa project in Goa offering luxury living,
           high rental yield, and strong long-term appreciation potential.
         </p>
       </section>
 
+      {/* 🧱 PROPERTY INFO */}
+      <section className="max-w-6xl mx-auto px-6 pb-20 grid md:grid-cols-2 gap-8">
+        <div className="bg-white/5 p-6 rounded-xl">
+          <h3 className="text-xl text-yellow-400 mb-3">Property Details</h3>
+          <ul className="space-y-2 text-gray-300">
+            <li>• Developer: Tata Housing</li>
+            <li>• Type: Luxury Villas</li>
+            <li>• Configuration: 3 / 4 BHK</li>
+            <li>• Status: Premium Development</li>
+            <li>• RERA Approved</li>
+          </ul>
+        </div>
+
+        <div className="bg-white/5 p-6 rounded-xl">
+          <h3 className="text-xl text-yellow-400 mb-3">Why Invest</h3>
+          <ul className="space-y-2 text-gray-300">
+            <li>✔ High Rental Yield</li>
+            <li>✔ Tourism Driven Demand</li>
+            <li>✔ Limited Beachfront Supply</li>
+            <li>✔ Strong Appreciation Potential</li>
+          </ul>
+        </div>
+      </section>
+
       {/* PRICE */}
-      <section className="p-12 bg-white text-center">
-        <h2 className="text-3xl mb-4">Pricing & Configuration</h2>
-        <p className="text-gray-700">3 BHK Villa • 2200 sqft • ₹2.5Cr</p>
-        <p className="text-gray-700">4 BHK Villa • 3000 sqft • ₹3.8Cr</p>
-        <button className="mt-4 bg-yellow-500 text-black px-6 py-2 rounded">
+      <section className="text-center pb-20">
+        <h2 className="text-4xl mb-6">Pricing & Configuration</h2>
+        <p className="text-gray-300">3 BHK Villa • 2200 sqft • ₹2.5Cr</p>
+        <p className="text-gray-300">4 BHK Villa • 3000 sqft • ₹3.8Cr</p>
+
+        <button className="mt-6 bg-yellow-500 text-black px-6 py-3 rounded-xl hover:scale-105 transition">
           Request Price Sheet
         </button>
       </section>
 
-      {/* HIGHLIGHTS */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6">Why This Property</h2>
-        <div className="space-y-2 text-gray-800">
-          <p>• Beachfront premium location</p>
-          <p>• Luxury villa development</p>
-          <p>• High rental & resale demand</p>
-        </div>
-      </section>
-
       {/* AMENITIES */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl mb-6">Amenities</h2>
-        <div className="flex flex-wrap gap-4 text-gray-400">
-          {["Private Pool","Clubhouse","Gym","Garden","Security"].map((item,i)=>(
-            <span key={i} className="bg-gray-800 px-4 py-2 rounded-full">{item}</span>
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <h2 className="text-4xl text-center mb-12">Amenities</h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {amenities.map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.05 }}
+              className="relative h-64 rounded-xl overflow-hidden group"
+            >
+              <img src={item.img} className="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+              <div className="absolute inset-0 bg-black/50" />
+              <div className="absolute bottom-4 left-4 text-lg">{item.name}</div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* LOCATION */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6">Location Advantage</h2>
-        <div className="text-gray-800 space-y-2">
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl mb-6">Location Advantage</h2>
+        <div className="text-gray-300 space-y-2">
           <p>• 2 mins from Beach</p>
           <p>• 10 mins from Airport</p>
           <p>• Close to tourist hubs & cafes</p>
         </div>
       </section>
 
-      {/* INVESTMENT */}
-      <section className="p-12 bg-white text-center">
-        <h2 className="text-3xl mb-4">Investment Insight</h2>
-        <p className="text-gray-800">Ideal for rental income & holiday homes</p>
-        <div className="mt-4 flex justify-center gap-6">
-          <p>⭐⭐⭐⭐☆</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>⭐⭐⭐⭐☆</p>
+      {/* HOW WE HELP */}
+      <section className="bg-white/5 py-20 text-center">
+        <h2 className="text-4xl mb-10">How We Help You Choose</h2>
+        <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto text-gray-300">
+          {["Understand Needs","Shortlist","Compare","ROI Clarity","Full Support"].map((item,i)=>(
+            <div key={i}>
+              <p className="text-yellow-400 text-xl">0{i+1}</p>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-4xl text-center mb-12">Why Choose Us</h2>
+        <div className="grid md:grid-cols-3 gap-6 text-gray-300">
+          {[
+            "Verified Listings",
+            "Trusted Developers",
+            "Transparent Pricing",
+            "No Pressure Selling",
+            "Investment Guidance",
+            "End-to-End Support",
+          ].map((item,i)=>(
+            <div key={i} className="bg-white/5 p-6 rounded-xl">
+              ✔ {item}
+            </div>
+          ))}
         </div>
       </section>
 
       {/* FORM */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6 text-center">Book Site Visit</h2>
-        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
-          <input className="p-3 bg-gray-200 rounded" placeholder="Name" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Phone" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Budget" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Purpose" />
+      <section className="max-w-4xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-8">Book Site Visit</h2>
+        <div className="grid md:grid-cols-2 gap-4">
+          <input className="p-4 bg-white/10 rounded" placeholder="Name" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Phone" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Budget" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Purpose" />
         </div>
+
         <div className="text-center mt-6">
-          <button className="bg-yellow-500 text-black px-8 py-3 rounded-lg">
+          <button className="bg-yellow-500 text-black px-8 py-3 rounded-xl">
             Schedule Visit
           </button>
         </div>
       </section>
 
-      {/* WHATSAPP FLOAT */}
-      <a
-        href="https://api.whatsapp.com/send/?phone=919650304018"
-        className="fixed bottom-6 right-4 bg-green-500 p-4 rounded-full shadow-lg"
-      >
+      {/* QUICK CONNECT */}
+      <div className="text-center pb-20">
+        <p className="text-gray-400 mb-4">📞 +91-9650304018</p>
+        <a href="https://api.whatsapp.com/send/?phone=919650304018" className="bg-green-500 px-6 py-3 rounded-full">
+          Chat on WhatsApp
+        </a>
+      </div>
+
+      {/* FLOAT */}
+      <a href="https://api.whatsapp.com/send/?phone=919650304018" className="fixed bottom-6 right-4 bg-green-500 p-4 rounded-full">
         💬
       </a>
 

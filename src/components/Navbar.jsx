@@ -1,18 +1,19 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import AuthModal from "./AuthModal";
 import logo from "../assets/logo.png";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const location = useLocation();
+
   const [openModal, setOpenModal] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // ✅ Auto close (fixed properly)
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -26,68 +27,101 @@ export default function Navbar() {
     };
 
     document.addEventListener("pointerdown", handleClickOutside);
-    return () => document.removeEventListener("pointerdown", handleClickOutside);
+    return () =>
+      document.removeEventListener("pointerdown", handleClickOutside);
   }, []);
+
+  const navItem = (path, label) => (
+    <button
+      onClick={() => navigate(path)}
+      className={`relative transition-all duration-300 hover:text-[#D4AF37]
+      ${location.pathname === path ? "text-[#D4AF37]" : "text-white/80"}`}
+    >
+      {label}
+      {location.pathname === path && (
+        <span className="absolute -bottom-1 left-0 w-full h-[2px] bg-[#D4AF37]" />
+      )}
+    </button>
+  );
 
   return (
     <>
-    <nav className="fixed top-0 left-0 w-full h-14 md:h-16 z-[9999] bg-[#0F172A] md:bg-[#0b2a3a]/80 backdrop-blur-md border-b border-white/10">
+      <nav className="fixed top-0 left-0 w-full z-[9999] bg-black/40 backdrop-blur-xl border-b border-white/10">
+        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-10 h-16 text-white">
 
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 md:px-10 h-full text-white">
-
-          {/* Logo */}
-          <div onClick={() => navigate("/")} className="cursor-pointer">
+          {/* LOGO */}
+          <div onClick={() => navigate("/")} className="cursor-pointer flex items-center gap-2">
             <img src={logo} alt="logo" className="h-8 md:h-10" />
+            <span className="hidden md:block text-sm tracking-widest text-white/60">
+              PREMIUM REALTY
+            </span>
           </div>
 
-          {/* Desktop Menu */}
+          {/* DESKTOP MENU */}
           <div className="hidden md:flex gap-8 text-sm font-medium">
-            <button onClick={() => navigate("/buy")}>Buy</button>
-            <button onClick={() => navigate("/rent")}>Rent</button>
-            <button onClick={() => navigate("/sell")}>Sell</button>
-            <button onClick={() => navigate("/new")}>New Development</button>
-            <button onClick={() => navigate("/gpt")}>MyRealty-GPT</button>
-            
+            {navItem("/buy", "Buy")}
+            {navItem("/rent", "Rent")}
+            {navItem("/sell", "Sell")}
+            {navItem("/new", "New Development")}
+            {navItem("/gpt", "MyRealty-GPT")}
           </div>
 
-          {/* Right */}
-          <div className="flex items-center gap-4 relative">
+          {/* RIGHT SIDE */}
+          <div className="flex items-center gap-4">
 
-            <Link to ="contactus"><button
-              className="hidden md:block text-sm"
-            >
-              Contact Us
-            </button>
+            {/* CONTACT BUTTON */}
+            <Link to="/contactus">
+              <button className="hidden md:block px-4 py-2 rounded-full border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition">
+                Contact Us
+              </button>
             </Link>
 
-            {/* Hamburger */}
+            {/* MOBILE MENU BUTTON */}
             <button
               ref={buttonRef}
-              className="md:hidden text-2xl"
+              className="md:hidden text-2xl text-white"
               onClick={() => setMenuOpen(!menuOpen)}
             >
               {menuOpen ? "✕" : "☰"}
             </button>
 
-            {/* Dropdown */}
+            {/* DROPDOWN MENU */}
             <div
               ref={menuRef}
-              className={`absolute right-0 top-12 w-52 bg-black/90 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl p-3 flex flex-col text-sm transition-all duration-200 origin-top-right
+              className={`absolute right-4 top-16 w-60 rounded-2xl border border-white/10 bg-black/80 backdrop-blur-2xl shadow-2xl p-4 flex flex-col gap-2 text-sm transition-all duration-300 origin-top-right
               ${menuOpen ? "scale-100 opacity-100" : "scale-95 opacity-0 pointer-events-none"}`}
             >
-              <button onClick={() => {navigate("/buy"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">Buy</button>
-              <button onClick={() => {navigate("/rent"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">Rent</button>
-              <button onClick={() => {navigate("/sell"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">Sell</button>
+              {[
+                ["/buy", "Buy"],
+                ["/rent", "Rent"],
+                ["/sell", "Sell"],
+                ["/new", "New Development"],
+                ["/gpt", "MyRealtyGPT"],
+              ].map(([path, label], i) => (
+                <button
+                  key={i}
+                  onClick={() => {
+                    navigate(path);
+                    setMenuOpen(false);
+                  }}
+                  className="px-3 py-2 rounded-lg text-left hover:bg-white/10 hover:text-[#D4AF37] transition"
+                >
+                  {label}
+                </button>
+              ))}
 
-              <button onClick={() => {navigate("/new"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">New Development </button>
-              
-              <button onClick={() => {navigate("/gpt"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">MyRealtyGPT</button>
+              <div className="h-px bg-white/10 my-2" />
 
-              <div className="h-px bg-white/20 my-2" />
-
-             <button onClick={() => {navigate("/contactus"); setMenuOpen(false);}} className="px-3 py-2 text-left hover:bg-white/10 rounded-lg">Contact Us</button>
+              <button
+                onClick={() => {
+                  navigate("/contactus");
+                  setMenuOpen(false);
+                }}
+                className="px-3 py-2 rounded-lg text-left bg-[#D4AF37] text-black font-semibold hover:opacity-90"
+              >
+                Contact Us
+              </button>
             </div>
-
           </div>
         </div>
       </nav>

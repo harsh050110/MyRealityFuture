@@ -1,143 +1,177 @@
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {Link} from "react-router-dom";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import privateCinema from "../../assets/private cinema.jpg";
+import sky from "../../assets/skylounage.jpg";
+import pool from "../../assets/pool.jpg";
+import Gym from "../../assets/gym.jpg";
 
-const images = [
-  "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
-  "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
-  "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+const amenities = [
+  {
+    name: "Infinity Pool",
+    img: pool,
+  },
+  {
+    name: "Luxury Gym",
+    img: Gym,
+  },
+  {
+    name: "Sky Lounge",
+    img: sky,
+  },
+  {
+    name: "Private Cinema",
+    img: privateCinema,
+  },
 ];
 
 export default function DowntownPage() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % images.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="bg-white text-black font-sans ">
+    <div className="bg-[#0b0b0b] text-white font-[Playfair_Display]">
 
-      {/* HERO SLIDER */}
-      <section className="relative h-[90vh] overflow-hidden">
-        <AnimatePresence>
-          <motion.img
-            key={index}
-            src={images[index]}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-            className="absolute w-full h-full object-cover"
-          />
-        </AnimatePresence>
-
-        <div className="absolute inset-0 bg-black/50" />
-
-        <div className="relative z-10 p-10 max-w-4xl">
-          <h1 className="text-5xl font-bold">Downtown Heights</h1>
-          <p className="mt-2 text-gray-300">📍 Downtown Dubai</p>
-          <p className="text-gray-400">🏗 Developer: Emaar</p>
-          <p className="mt-2 text-xl font-semibold">₹1.2Cr onwards</p>
-          <p className="text-gray-400">Luxury Apartments</p>
-
-          <div className="mt-4 text-sm text-gray-300 space-y-1">
-            <p>✔ Prime location in central Dubai</p>
-            <p>✔ High rental yield potential</p>
-            <p>✔ Premium lifestyle & infrastructure</p>
+      {/* 🔝 NAVBAR */}
+      <div className="fixed top-0 w-full z-50 backdrop-blur-md bg-white/10 border-b border-white/10">
+        <div className="max-w-7xl mx-auto flex justify-between items-center p-4">
+          <h1 className="text-xl tracking-widest">DOWNTOWN</h1>
+          <div className="flex gap-6 text-sm">
+            <a href="#">Overview</a>
+            <a href="#">Amenities</a>
+            <a href="#">Location</a>
+            <Link to="/contactus">Contact</Link>
           </div>
+        </div>
+      </div>
 
-          <div className="flex gap-4 mt-6">
-            <button className="bg-yellow-500 text-black px-6 py-3 rounded-lg">Get Price</button>
-            
-            <Link to ="/contactus"><button className="border px-6 py-3 rounded-lg">Visit</button></Link>
-            <button className="bg-green-500 px-6 py-3 rounded-lg">WhatsApp</button>
+      {/* 🎥 HERO VIDEO */}
+      <section className="relative h-screen flex items-center">
+        <video
+          autoPlay
+          loop
+          muted
+          className="absolute w-full h-full object-cover"
+          src="https://cdn.coverr.co/videos/coverr-luxury-apartment-2603/1080p.mp4"
+        />
+
+        <div className="absolute inset-0 bg-black/60" />
+
+        <div className="relative z-10 max-w-5xl px-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-7xl leading-tight"
+          >
+            Live Above <br /> The Skyline
+          </motion.h1>
+
+          <p className="mt-6 text-gray-300 text-lg max-w-xl">
+            Ultra-luxury residences in Downtown Dubai crafted for global elites.
+          </p>
+
+          <div className="mt-8 flex gap-4">
+            <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-8 py-3 rounded-full font-semibold hover:scale-105 transition">
+              Explore Prices
+            </button>
+
+            <button className="border border-white/40 px-8 py-3 rounded-full hover:bg-white hover:text-black transition">
+              Brochure
+            </button>
           </div>
         </div>
       </section>
 
-      {/* OVERVIEW */}
-      <section className="p-12 max-w-5xl mx-auto">
-        <h2 className="text-3xl mb-4">Property Overview</h2>
-        <p className="text-gray-900">
-          A premium high-rise development in Downtown Dubai offering luxury living,
-          strong rental income, and global investment potential.
+      {/* 🧊 OVERVIEW */}
+      <motion.section
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="max-w-6xl mx-auto py-24 px-6"
+      >
+        <h2 className="text-4xl mb-6">A New Standard of Living</h2>
+        <p className="text-gray-400 max-w-2xl">
+          Experience architectural brilliance, unmatched views, and curated luxury.
+          Every detail is crafted for prestige living.
         </p>
-      </section>
+      </motion.section>
 
-      {/* PRICE */}
-      <section className="p-12 bg-white text-center">
-        <h2 className="text-3xl mb-4">Pricing & Configuration</h2>
-        <p className="text-gray-700">1 BHK • 800 sqft • ₹1.2Cr</p>
-        <p className="text-gray-700">2 BHK • 1200 sqft • ₹1.8Cr</p>
-        <button className="mt-4 bg-yellow-500 text-black px-6 py-2 rounded">
-          Request Price Sheet
-        </button>
-      </section>
+      {/* 🏊 AMENITIES GRID */}
+      <section className="max-w-7xl mx-auto px-6 pb-24">
+        <h2 className="text-4xl mb-12 text-center">World-Class Amenities</h2>
 
-      {/* HIGHLIGHTS */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6">Why This Property</h2>
-        <div className="space-y-2 text-gray-800">
-          <p>• Prime Downtown location</p>
-          <p>• Luxury high-rise development</p>
-          <p>• Strong global investment appeal</p>
-        </div>
-      </section>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {amenities.map((item, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.07 }}
+              className="relative h-80 rounded-2xl overflow-hidden group"
+            >
+              <img
+                src={item.img}
+                className="absolute w-full h-full object-cover group-hover:scale-110 transition duration-700"
+              />
 
-      {/* AMENITIES */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl mb-6">Amenities</h2>
-        <div className="flex flex-wrap gap-4 text-gray-400">
-          {["Infinity Pool","Gym","Sky Lounge","Concierge","Security"].map((item,i)=>(
-            <span key={i} className="bg-gray-800 px-4 py-2 rounded-full">{item}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+              <div className="absolute bottom-6 left-6 text-xl tracking-wide">
+                {item.name}
+              </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
-      {/* LOCATION */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6">Location Advantage</h2>
-        <div className="text-gray-800 space-y-2">
-          <p>• 5 mins from Burj Khalifa</p>
-          <p>• 10 mins from Business Bay</p>
-          <p>• 15 mins from Dubai Airport</p>
+      {/* 📍 LOCATION */}
+      <section className="relative h-[70vh] flex items-center justify-center text-center">
+        <img
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c"
+          className="absolute w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70" />
+
+        <div className="relative z-10">
+          <h2 className="text-5xl mb-4">In The Heart of Dubai</h2>
+          <p className="text-gray-300">
+            Minutes from Burj Khalifa • Dubai Mall • Business Bay
+          </p>
         </div>
       </section>
 
-      {/* INVESTMENT */}
-      <section className="p-12 bg-white text-center">
-        <h2 className="text-3xl mb-4">Investment Insight</h2>
-        <p className="text-gray-800">Ideal for rental income & global investors</p>
-        <div className="mt-4 flex justify-center gap-6">
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>⭐⭐⭐⭐☆</p>
-          <p>⭐⭐⭐⭐⭐</p>
+      {/* 💰 PRICING */}
+      <section className="max-w-5xl mx-auto py-24 text-center">
+        <h2 className="text-4xl mb-6">Pricing</h2>
+        <p className="text-gray-400">1 BHK from ₹1.2Cr</p>
+        <p className="text-gray-400">2 BHK from ₹1.8Cr</p>
+
+        <button className="mt-8 bg-yellow-500 text-black px-8 py-3 rounded-full hover:scale-105 transition">
+          Request Details
+        </button>
+      </section>
+
+      {/* 📩 FORM */}
+      <section className="bg-white/5 py-20">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl text-center mb-10">Schedule a Private Tour</h2>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            <input className="p-4 bg-white/10 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Full Name" />
+            <input className="p-4 bg-white/10 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Phone Number" />
+            <input className="p-4 bg-white/10 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Budget" />
+            <input className="p-4 bg-white/10 rounded-lg outline-none focus:ring-2 focus:ring-yellow-400" placeholder="Purpose" />
+          </div>
+
+          <div className="text-center mt-8">
+            <button className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black px-10 py-4 rounded-full text-lg hover:scale-105 transition">
+              Book Now
+            </button>
+          </div>
         </div>
       </section>
 
-      {/* FORM */}
-      <section className="p-12">
-        <h2 className="text-3xl mb-6 text-center">Book Site Visit</h2>
-        <div className="max-w-3xl mx-auto grid md:grid-cols-2 gap-4">
-          <input className="p-3 bg-gray-200 rounded" placeholder="Name" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Phone" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Budget" />
-          <input className="p-3 bg-gray-200 rounded" placeholder="Purpose" />
-        </div>
-        <div className="text-center mt-6">
-          <button className="bg-yellow-500 text-black px-8 py-3 rounded-lg">Schedule Visit</button>
-        </div>
-      </section>
-
-      {/* WHATSAPP FLOAT */}
-      <a href="https://api.whatsapp.com/send/?phone=919650304018" className="fixed bottom-6 right-4 bg-green-500 p-4 rounded-full shadow-lg">
+      {/* 💬 FLOAT */}
+      <a
+        href="https://api.whatsapp.com/send/?phone=919650304018"
+        className="fixed bottom-6 right-6 bg-green-500 p-4 rounded-full shadow-2xl hover:scale-110 transition"
+      >
         💬
       </a>
-
     </div>
   );
 }

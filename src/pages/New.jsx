@@ -30,7 +30,7 @@ const projects = [
 
 export default function NewDevelopmentsUI() {
   return (
-    <div className="bg-white text-black font-sans">
+    <div className="bg-[#0b0b0b] text-white font-sans">
 
       {/* HERO */}
       <section className="h-screen relative flex items-center justify-center text-center">
@@ -38,43 +38,47 @@ export default function NewDevelopmentsUI() {
           src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae"
           className="absolute w-full h-full object-cover opacity-40"
         />
+        <div className="absolute inset-0 bg-black/70" />
 
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           className="relative z-10 max-w-3xl"
         >
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-6xl font-bold mb-4">
             Discover New Launches Before the Market Does
           </h1>
-          <p className="text-black">
-            Early access. Better pricing. Smart investment decisions.
+          <p className="text-gray-300 text-lg">
+            Early access. Better pricing. Smarter investment decisions.
           </p>
         </motion.div>
       </section>
 
+      {/* INTRO */}
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <p className="text-gray-300 text-lg">
+          New developments offer the highest potential for appreciation when chosen early.
+          We help you access verified launches with strategic insight — not hype.
+        </p>
+      </section>
+
       {/* FEATURED PROJECTS */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold text-center mb-10 text-black">
-          Featured New Launches
-        </h2>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-12">Featured New Launches</h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white text-black rounded-2xl overflow-hidden shadow-xl"
+              whileHover={{ scale: 1.03 }}
+              className="bg-white/5 rounded-2xl overflow-hidden"
             >
               <div className="relative">
                 <img src={item.img} className="h-56 w-full object-cover" />
 
-                {/* Badge */}
                 <span className="absolute top-3 left-3 bg-black text-white px-3 py-1 text-xs rounded">
                   New Launch
                 </span>
-
-                {/* Limited */}
                 <span className="absolute top-3 right-3 bg-red-500 text-white px-3 py-1 text-xs rounded">
                   Limited
                 </span>
@@ -82,12 +86,18 @@ export default function NewDevelopmentsUI() {
 
               <div className="p-5">
                 <h3 className="text-xl font-semibold">{item.name}</h3>
-                <p className="text-gray-500 text-sm">{item.location} | {item.developer}</p>
-                <p className="font-bold mt-2">Starting {item.price}</p>
-                <p className="text-sm text-gray-500">Possession: {item.possession}</p>
+                <p className="text-gray-400 text-sm">
+                  {item.location} | {item.developer}
+                </p>
+                <p className="text-yellow-400 mt-2 font-semibold">
+                  Starting {item.price}
+                </p>
+                <p className="text-gray-400 text-sm">
+                  Possession: {item.possession}
+                </p>
 
                 <div className="flex gap-2 mt-4">
-                  <button className="bg-[#D4AF37] text-black px-4 py-2 rounded-lg text-sm">
+                  <button className="bg-yellow-500 text-black px-4 py-2 rounded-lg text-sm">
                     View Project
                   </button>
                   <button className="border px-4 py-2 rounded-lg text-sm">
@@ -100,78 +110,96 @@ export default function NewDevelopmentsUI() {
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl text-center mb-10">Why Invest Early</h2>
+      {/* WHY INVEST EARLY */}
+      <section className="bg-white/5 py-20 text-center">
+        <h2 className="text-4xl mb-10">Why Invest Early</h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto text-gray-300">
           {[
             "Pre-Launch Pricing",
-            "Better Selection",
-            "Flexible Plans",
-            "High Appreciation",
+            "Better Unit Selection",
+            "Flexible Payment Plans",
+            "High Appreciation Potential",
           ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.08 }}
-              className="aspect-square bg-[#D4AF37] rounded-xl flex items-center justify-center text-center"
-            >
-              {item}
-            </motion.div>
+            <div key={i} className="bg-white/5 p-6 rounded-xl">
+              ✔ {item}
+            </div>
           ))}
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="p-12">
-        <h2 className="text-3xl text-center mb-10">Our Advisory Approach</h2>
+      {/* 🧠 ADVISORY APPROACH */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-4xl text-center mb-12">Our Advisory Approach</h2>
 
-        <div className="grid md:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-4 gap-6 text-center text-gray-300">
           {["Evaluation", "Matching", "Transparency", "End Support"].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="bg-[#D4AF37] p-6 rounded-xl text-center"
-            >
-              {item}
-            </motion.div>
+            <div key={i}>
+              <p className="text-yellow-400 text-xl">0{i + 1}</p>
+              <p>{item}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 🏆 WHY CHOOSE US */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-12">Why Choose Us</h2>
+
+        <div className="grid md:grid-cols-3 gap-6 text-gray-300">
+          {[
+            "Verified Developers",
+            "Early Access Deals",
+            "Transparent Insights",
+            "No Sales Pressure",
+            "Investment Guidance",
+            "End-to-End Support",
+          ].map((item, i) => (
+            <div key={i} className="bg-white/5 p-6 rounded-xl">
+              ✔ {item}
+            </div>
           ))}
         </div>
       </section>
 
       {/* FORM */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl text-center mb-8">Get Early Access</h2>
+      <section className="max-w-4xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-8">Get Early Access</h2>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Full Name" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Phone" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Location" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Budget" />
+        <div className="grid md:grid-cols-2 gap-4">
+          <input className="p-4 bg-white/10 rounded" placeholder="Full Name" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Phone" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Location" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Budget" />
         </div>
 
         <div className="text-center mt-6">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            className="bg-[#D4AF37] text-black px-8 py-3 rounded-lg"
-          >
+          <button className="bg-yellow-500 text-black px-8 py-3 rounded-xl">
             Get Early Access
-          </motion.button>
+          </button>
         </div>
       </section>
 
+      {/* QUICK CONNECT */}
+      <div className="text-center pb-20">
+        <p className="text-gray-400 mb-4">📞 +91-9650304018</p>
+        <a
+          href="https://api.whatsapp.com/send/?phone=919650304018"
+          className="bg-green-500 px-6 py-3 rounded-full"
+        >
+          Chat on WhatsApp
+        </a>
+      </div>
+
       {/* FINAL CTA */}
-      <section className="p-16 text-center">
+      <section className="text-center pb-20">
         <h2 className="text-3xl font-bold">
           The Best Investments Are Made Early — But Chosen Right
         </h2>
+        <p className="text-gray-400 mt-4">
+          Strategy matters more than speed.
+        </p>
       </section>
-
-      {/* FOOTER */}
-      <footer className="p-6 text-center  text-black">
-        <p>📞 +91-9650304018 | 🌐 myrealtyfuture.com</p>
-      </footer>
     </div>
   );
 }

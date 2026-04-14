@@ -1,42 +1,57 @@
 const About = () => {
   return (
-    <section className="bg-white text-[#111827] py-24 px-6">
+    <section className="relative bg-gradient-to-b from-white via-white to-gray-50 text-[#111827] py-28 px-6 overflow-hidden">
 
-      <div className="max-w-7xl mx-auto">
+      {/* subtle background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4AF37]/10 blur-[120px] rounded-full" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* 🔥 TOP HEADING */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif mb-4">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-serif tracking-tight mb-4">
             About My Realty Future
           </h2>
-          <p className="text-lg text-gray-400 tracking-wide">
+          <p className="text-lg text-gray-500 tracking-[0.3em] uppercase">
             Advisory. Insight. Precision.
           </p>
+
+          <div className="mt-6 w-24 h-[2px] bg-[#D4AF37] mx-auto rounded-full" />
         </div>
 
         {/* 🔥 GRID START */}
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-14 items-center">
 
           {/* 📝 LEFT CONTENT */}
-          <div>
-            <p className="text-[#111827] leading-relaxed mb-6">
+          <div className="space-y-6">
+            <p className="text-[#111827] leading-relaxed text-lg">
               Based in Noida, My Realty Future is a premium real estate advisory
               firm serving clients across India and international markets.
             </p>
 
-            <p className="text-[#111827] leading-relaxed">
+            <p className="text-[#111827] leading-relaxed text-lg">
               Our philosophy is refined and client-centric — we believe property
               acquisition is not a transaction. It is a strategic decision shaping
               your financial and lifestyle future.
             </p>
+
+            {/* subtle highlight card */}
+            <div className="mt-8 p-6 border border-gray-200 rounded-2xl bg-white shadow-sm hover:shadow-md transition">
+              <p className="text-sm text-gray-600">
+                We focus on clarity, not clutter — guiding investors with precision-driven insights.
+              </p>
+            </div>
           </div>
 
           {/* 🌍 RIGHT CARD */}
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 shadow-xl">
+          <div className="bg-white border border-gray-200 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition relative overflow-hidden">
+
+            {/* gold glow accent */}
+            <div className="absolute -top-20 -right-20 w-40 h-40 bg-[#D4AF37]/20 blur-3xl rounded-full" />
 
             {/* INDIA */}
-            <div className="mb-8">
-              <h3 className="text-lg font-semibold mb-4 text-[#111827]">
+            <div className="mb-10">
+              <h3 className="text-lg font-semibold mb-5 flex items-center gap-2">
                 🇮🇳 India Presence
               </h3>
 
@@ -54,7 +69,8 @@ const About = () => {
                 ].map((city, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-[#D4AF37] transition"
+                    className="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm text-center
+                    hover:bg-[#D4AF37] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer"
                   >
                     {city}
                   </div>
@@ -64,7 +80,7 @@ const About = () => {
 
             {/* GLOBAL */}
             <div>
-              <h3 className="text-lg font-semibold mb-4 text-[#111827]">
+              <h3 className="text-lg font-semibold mb-5 flex items-center gap-2">
                 🌎 Global Markets
               </h3>
 
@@ -78,7 +94,8 @@ const About = () => {
                 ].map((city, i) => (
                   <div
                     key={i}
-                    className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-sm text-center hover:bg-[#D4AF37] transition"
+                    className="bg-gray-50 border border-gray-200 rounded-xl px-3 py-2 text-sm text-center
+                    hover:bg-[#D4AF37] hover:text-black hover:scale-105 transition-all duration-300 cursor-pointer"
                   >
                     {city}
                   </div>
@@ -89,23 +106,26 @@ const About = () => {
           </div>
         </div>
 
-        {/* 🔥 BOTTOM STATS GRID (VERY PREMIUM TOUCH) */}
-        <div className="grid sm:grid-cols-3 gap-6 mt-20 text-center">
+        {/* 🔥 BOTTOM STATS GRID */}
+        <div className="grid sm:grid-cols-3 gap-8 mt-24 text-center">
 
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-            <h4 className="text-3xl font-semibold mb-2">9+</h4>
-            <p className="text-[#111827] text-sm">Indian Cities Covered</p>
-          </div>
-
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-            <h4 className="text-3xl font-semibold mb-2">5+</h4>
-            <p className="text-[#111827] text-sm">Global Markets</p>
-          </div>
-
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
-            <h4 className="text-3xl font-semibold mb-2">100%</h4>
-            <p className="text-[#111827] text-sm">Client-Centric Approach</p>
-          </div>
+          {[
+            { num: "9+", label: "Indian Cities Covered" },
+            { num: "5+", label: "Global Markets" },
+            { num: "100%", label: "Client-Centric Approach" },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="group bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            >
+              <h4 className="text-4xl font-semibold text-[#D4AF37] mb-2 group-hover:scale-110 transition">
+                {item.num}
+              </h4>
+              <p className="text-gray-600 text-sm tracking-wide">
+                {item.label}
+              </p>
+            </div>
+          ))}
 
         </div>
 

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function SellPropertyUI() {
   return (
-    <div className="bg-black text-white font-sans overflow-hidden">
+    <div className="bg-[#0b0b0b] text-white font-sans overflow-hidden">
 
       {/* HERO */}
       <section className="h-screen relative flex items-center justify-center text-center">
@@ -12,168 +12,196 @@ export default function SellPropertyUI() {
           className="absolute w-full h-full object-cover opacity-40"
         />
 
+        <div className="absolute inset-0 bg-black/70" />
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
           className="relative z-10 max-w-3xl"
         >
-          <h1 className="text-5xl font-bold mb-4">
+          <h1 className="text-6xl font-bold mb-4">
             Sell Smart. Not Just Fast.
           </h1>
           <p className="text-gray-300 text-lg">
-            Strategic selling with market insight, right pricing, and the right buyers.
+            Positioning, pricing, and targeting the right buyers — strategically.
           </p>
         </motion.div>
       </section>
 
+      {/* INTRO */}
+      <section className="max-w-6xl mx-auto px-6 py-20 text-center">
+        <p className="text-gray-300 text-lg">
+          At My Realty Future, selling a property is not about listing it everywhere —
+          it’s about positioning it correctly, pricing it right, and reaching the right buyers.
+        </p>
+      </section>
+
       {/* WHO THIS IS FOR */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold mb-10 text-center">
-          Who This Is For
-        </h2>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-12">Who This Is For</h2>
 
         <div className="grid md:grid-cols-3 gap-6">
           {[
-            "Right Buyer Focus",
-            "Investor Exit Strategy",
-            "Low Inquiry Problems",
-            "Discreet Handling",
-            "NRI / HNI Owners",
-            "Pricing Confusion",
+            "Owners looking for the right buyer",
+            "Investors planning exit",
+            "Low inquiry problems",
+            "Discreet handling needed",
+            "NRI / HNI owners",
+            "Pricing confusion",
           ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-[#D4AF37] p-6 rounded-xl text-center text-black"
-            >
-              {item}
-            </motion.div>
+            <div key={i} className="bg-white/5 p-6 rounded-xl text-gray-300">
+              ✔ {item}
+            </div>
           ))}
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
-          What We Help You With
-        </h2>
+      {/* SERVICES (DETAILED) */}
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-12">What We Help You With</h2>
 
         <div className="grid md:grid-cols-2 gap-8">
           {[
-            "Strategic Property Positioning",
-            "Accurate Pricing Strategy",
-            "Targeted Buyer Reach",
-            "Presentation Guidance",
-            "Negotiation Support",
-            "Documentation Assistance",
+            {
+              title: "Strategic Property Positioning",
+              points: ["Location demand", "Market trends", "Buyer segment", "Competition"],
+            },
+            {
+              title: "Accurate Pricing Strategy",
+              points: ["Comparable properties", "Demand-supply gap", "ROI expectations"],
+            },
+            {
+              title: "Targeted Buyer Reach",
+              points: ["Qualified buyers", "Investors", "End-users", "Corporate clients"],
+            },
+            {
+              title: "Presentation Guidance",
+              points: ["Property presentation", "Value-adding improvements"],
+            },
+            {
+              title: "Negotiation Support",
+              points: ["Best deal closure", "Avoid underpricing"],
+            },
+            {
+              title: "Documentation Assistance",
+              points: ["Legal clarity", "Smooth transaction"],
+            },
           ].map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-gradient-to-r from-[#D4AF37] to-gray-800 p-6 rounded-xl shadow-lg text-black"
+              whileHover={{ scale: 1.03 }}
+              className="bg-white/5 p-6 rounded-xl"
             >
-              <h3 className="text-xl font-semibold">{item}</h3>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
-      {/* PROCESS */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
-          How Our Selling Process Works
-        </h2>
-
-        <div className="grid md:grid-cols-5 gap-4">
-          {[
-            "Assessment",
-            "Pricing",
-            "Targeting",
-            "Showcasing",
-            "Closure",
-          ].map((step, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.1 }}
-              className="bg-gradient-to-r from-[#D4AF37] to-gray-900 p-6 rounded-xl text-center border border-gray-700 text-black"
-            >
-              <p className="font-semibold">{step}</p>
+              <h3 className="text-xl text-yellow-400 mb-3">{item.title}</h3>
+              <ul className="text-gray-300 space-y-1">
+                {item.points.map((p, idx) => (
+                  <li key={idx}>• {p}</li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* PROPERTY TYPES */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold mb-10 text-center text-black">
-          Property Types We Handle
-        </h2>
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-12">Property Types</h2>
 
         <div className="grid md:grid-cols-4 gap-6">
-          {["Residential", "Commercial", "Land", "Luxury"].map((type, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gradient-to-r from-[#D4AF37] to-gray-900 p-6 rounded-xl text-center text-black"
-            >
+          {["Residential","Commercial","Land & Plots","Luxury"].map((type, i) => (
+            <div key={i} className="bg-white/5 p-6 rounded-xl text-center">
               {type}
-            </motion.div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* LOCATIONS */}
+      <section className="max-w-7xl mx-auto px-6 pb-20 text-center">
+        <h2 className="text-4xl mb-8">Locations We Cover</h2>
+
+        <p className="text-gray-300">
+          🇮🇳 Delhi • Gurugram • Noida • Mumbai • Pune • Goa • Dholera
+        </p>
+        <p className="text-gray-300 mt-2">
+          🌍 Dubai • UAE • Qatar • London • Singapore • Miami
+        </p>
+      </section>
+
+      {/* PROCESS */}
+      <section className="bg-white/5 py-20 text-center">
+        <h2 className="text-4xl mb-10">Our Process</h2>
+
+        <div className="grid md:grid-cols-5 gap-6 max-w-6xl mx-auto text-gray-300">
+          {["Assessment","Pricing","Targeting","Showcasing","Closure"].map((step,i)=>(
+            <div key={i}>
+              <p className="text-yellow-400 text-xl">0{i+1}</p>
+              <p>{step}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHY US */}
+      <section className="max-w-6xl mx-auto px-6 py-20">
+        <h2 className="text-4xl text-center mb-12">Why Choose Us</h2>
+
+        <div className="grid md:grid-cols-3 gap-6 text-gray-300">
+          {[
+            "Strategic selling approach",
+            "Data-driven pricing",
+            "Access to serious buyers",
+            "Professional handling",
+            "Transparent communication",
+            "Advisory-first model",
+          ].map((item,i)=>(
+            <div key={i} className="bg-white/5 p-6 rounded-xl">
+              ✔ {item}
+            </div>
           ))}
         </div>
       </section>
 
       {/* FORM */}
-      <section className="p-12 bg-white">
-        <h2 className="text-3xl font-semibold mb-8 text-center text-black">
-          List Your Property
-        </h2>
+      <section className="max-w-4xl mx-auto px-6 pb-20">
+        <h2 className="text-4xl text-center mb-8">List Your Property</h2>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Full Name" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Phone Number" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Location" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Type" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Expected Price" />
-          <input className="p-3 rounded bg-[#e8e6de]" placeholder="Property Status" />
-          <input className="p-3 rounded bg-[#e8e6de] col-span-2" placeholder="Reason for Selling" />
-          <textarea className="p-3 rounded bg-[#e8e6de] col-span-2" placeholder="Additional Details" />
+        <div className="grid md:grid-cols-2 gap-4">
+          <input className="p-4 bg-white/10 rounded" placeholder="Full Name" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Phone Number" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Property Location" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Property Type" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Expected Price" />
+          <input className="p-4 bg-white/10 rounded" placeholder="Property Status" />
+          <input className="p-4 bg-white/10 rounded col-span-2" placeholder="Reason for Selling" />
+          <textarea className="p-4 bg-white/10 rounded col-span-2" placeholder="Additional Details" />
         </div>
 
         <div className="text-center mt-6">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-[#D4AF37] text-black px-8 py-3 rounded-lg font-semibold"
-          >
+          <button className="bg-yellow-500 text-black px-8 py-3 rounded-xl">
             List My Property
-          </motion.button>
+          </button>
         </div>
       </section>
 
+      {/* QUICK CONNECT */}
+      <div className="text-center pb-20">
+        <p className="text-gray-400 mb-4">📞 +91-9650304018</p>
+        <a href="https://api.whatsapp.com/send/?phone=919650304018" className="bg-green-500 px-6 py-3 rounded-full">
+          Chat on WhatsApp
+        </a>
+      </div>
+
       {/* FINAL CTA */}
-      <section className="p-16 text-center bg-white text-black">
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-bold"
-        >
+      <section className="text-center pb-20">
+        <h2 className="text-3xl font-bold">
           The Right Sale Isn’t About Speed — It’s About Strategy.
-        </motion.h2>
-        <p className="text-black mt-4">
+        </h2>
+        <p className="text-gray-400 mt-4">
           We position, price, and present your property for the best outcome.
         </p>
       </section>
 
-      {/* FOOTER */}
-      <footer className="p-6 text-center text-black bg-white">
-        <p>📞 +91-9650304018 | 🌐 myrealtyfuture.com</p>
-      </footer>
     </div>
   );
 }

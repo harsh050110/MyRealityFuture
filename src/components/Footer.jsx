@@ -1,17 +1,34 @@
 import { FaInstagram, FaFacebookF, FaXTwitter, FaWhatsapp } from "react-icons/fa6";
-import {Link} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
-export default function Footer() {
-  return (
-    <footer className="bg-black text-gray-300 py-16 px-6 md:px-12">
 
-      <div className="max-w-[1400px] mx-auto grid md:grid-cols-4 gap-10">
+export default function Footer() {
+  const navigate = useNavigate();
+
+
+  return (
+     
+     <footer
+      className={
+       " bg-black text-gray-300 pt-20 pb-10 px-6 md:px-12"
+          
+      }
+    >
+
+      <div className="max-w-[1400px] mx-auto grid md:grid-cols-4 gap-12">
 
         {/* BRAND */}
-        <div>
-          <div onClick={() => navigate("/")} className="cursor-pointer">
-                      <img src={logo} alt="logo" className="h-16 md:h-10" />
-                    </div>
+        <div className="space-y-4">
+          <div
+            onClick={() => navigate("/")}
+            className="cursor-pointer inline-block"
+          >
+            <img
+              src={logo}
+              alt="logo"
+              className="h-12 md:h-14 hover:scale-105 transition"
+            />
+          </div>
 
           <p className="text-sm text-gray-400 leading-relaxed">
             We don’t just list properties — we help you choose the right one
@@ -21,68 +38,70 @@ export default function Footer() {
 
         {/* SERVICES */}
         <div>
-          <h3 className="text-white text-lg mb-4 font-semibold">Services</h3>
+          <h3 className="text-white text-lg mb-5 font-semibold">Services</h3>
 
-          <ul className="space-y-2 text-sm">
-            <Link to="buy"><li>Buy Property</li></Link>
-            <Link to="sell"><li>Sell Property</li></Link>
-            <Link to="rent"><li>Rent Property</li></Link>
-            <Link to="new"><li>New Developments</li></Link>
-            
+          <ul className="space-y-3 text-sm">
+            <Link to="buy" className="hover:text-white transition"><li>Buy Property</li></Link>
+            <Link to="sell" className="hover:text-white transition"><li>Sell Property</li></Link>
+            <Link to="rent" className="hover:text-white transition"><li>Rent Property</li></Link>
+            <Link to="new" className="hover:text-white transition"><li>New Developments</li></Link>
           </ul>
         </div>
 
         {/* LOCATIONS */}
         <div>
-          <h3 className="text-white text-lg mb-4 font-semibold">Locations</h3>
+          <h3 className="text-white text-lg mb-5 font-semibold">Locations</h3>
 
-          <ul className="space-y-2 text-sm">
-            <li>Delhi NCR</li>
-            <li>Gurugram</li>
-            <li>Noida</li>
-            <li>Mumbai</li>
-            <li>Pune</li>
-            <li>Dubai</li>
+          <ul className="space-y-3 text-sm text-gray-400">
+            <li className="hover:text-white transition cursor-default">Delhi NCR</li>
+            <li className="hover:text-white transition cursor-default">Gurugram</li>
+            <li className="hover:text-white transition cursor-default">Noida</li>
+            <li className="hover:text-white transition cursor-default">Mumbai</li>
+            <li className="hover:text-white transition cursor-default">Pune</li>
+            <li className="hover:text-white transition cursor-default">Dubai</li>
           </ul>
         </div>
 
         {/* CONTACT + SOCIAL */}
-        <div className="flex flex-col justify-between">
+        <div className="space-y-6">
 
           {/* Contact */}
           <div>
-            <h3 className="text-white text-lg mb-4 font-semibold">Contact</h3>
+            <h3 className="text-white text-lg mb-5 font-semibold">Contact</h3>
 
             <p className="text-sm mb-2">📞 +91-9650304018</p>
             <p className="text-sm mb-4">🌐 myrealtyfuture.com</p>
 
             <a
               href="https://api.whatsapp.com/send/?phone=919650304018"
-              className="inline-block bg-green-500 text-black px-4 py-2 rounded-md text-sm font-medium"
+              className="inline-flex items-center gap-2 bg-green-500 text-black px-4 py-2 rounded-md text-sm font-medium hover:bg-green-400 transition"
             >
-              WhatsApp Now
+              <FaWhatsapp /> WhatsApp Now
             </a>
           </div>
 
           {/* Social Icons */}
-          <div className="flex gap-5 text-lg text-white mt-6">
-            <FaInstagram className="cursor-pointer hover:text-gray-400" />
-            <FaFacebookF className="cursor-pointer hover:text-gray-400" />
-            <FaXTwitter className="cursor-pointer hover:text-gray-400" />
-            <FaWhatsapp className="cursor-pointer hover:text-green-400" />
+          <div>
+            <h3 className="text-white text-lg mb-3 font-semibold">Follow Us</h3>
+
+            <div className="flex gap-5 text-lg text-white">
+              <FaInstagram className="cursor-pointer hover:text-pink-400 transition" />
+              <FaFacebookF className="cursor-pointer hover:text-blue-400 transition" />
+              <FaXTwitter className="cursor-pointer hover:text-gray-400 transition" />
+              <FaWhatsapp className="cursor-pointer hover:text-green-400 transition" />
+            </div>
           </div>
 
         </div>
-
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800 mt-12 pt-6 text-center text-xs text-gray-500">
+      <div className="border-t border-gray-800 mt-14 pt-6 text-center text-xs text-gray-500 space-y-2">
         <p>
           © 2026 My Realty Future · All Rights Reserved · Privacy Policy · Terms
         </p>
 
-        <p className="mt-2">
+        <p>
           We provide advisory-driven real estate solutions. All property details
           should be independently verified.
         </p>
