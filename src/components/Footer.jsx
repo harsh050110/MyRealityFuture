@@ -85,10 +85,37 @@ export default function Footer() {
             <h3 className="text-white text-lg mb-3 font-semibold">Follow Us</h3>
 
             <div className="flex gap-5 text-lg text-white">
-              <FaInstagram className="cursor-pointer hover:text-pink-400 transition" />
-              <FaFacebookF className="cursor-pointer hover:text-blue-400 transition" />
-              <FaXTwitter className="cursor-pointer hover:text-gray-400 transition" />
-              <FaWhatsapp className="cursor-pointer hover:text-green-400 transition" />
+              <a
+  href="https://www.instagram.com/myrealtyfuture/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaInstagram className="cursor-pointer hover:text-pink-400 transition" />
+</a>
+
+<a
+  href="https://www.facebook.com/people/My-Realty-Future/61587381691131/"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaFacebookF className="cursor-pointer hover:text-blue-400 transition" />
+</a>
+
+<a
+  href="https://x.com/myrealtyfuture"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaXTwitter className="cursor-pointer hover:text-gray-400 transition" />
+</a>
+
+<a
+  href="https://wa.me/9650304018"  // add your WhatsApp number here
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <FaWhatsapp className="cursor-pointer hover:text-green-400 transition" />
+</a>
             </div>
           </div>
 
@@ -96,16 +123,27 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-800 mt-14 pt-6 text-center text-xs text-gray-500 space-y-2">
-        <p>
-          © 2026 My Realty Future · All Rights Reserved · Privacy Policy · Terms
-        </p>
+      
+        <div className="border-t border-gray-800 mt-14 pt-6 text-center text-xs text-gray-500 space-y-3">
 
-        <p>
-          We provide advisory-driven real estate solutions. All property details
-          should be independently verified.
-        </p>
-      </div>
+  <p>
+    © 2026 My Realty Future · All Rights Reserved ·{" "}
+    <Link to="/privacy-policy" className="hover:text-white transition">Privacy Policy</Link>{" "}
+    ·{" "}
+    <Link to="/terms-conditions" className="hover:text-white transition">Terms & Conditions</Link>{" "}
+    ·{" "}
+    <Link to="/terms-of-use" className="hover:text-white transition">Terms of Use</Link>{" "}
+    ·{" "}
+    <Link to="/disclaimer" className="hover:text-white transition">Disclaimer</Link>
+  </p>
+
+  <p>
+    We provide advisory-driven real estate solutions. All property details
+    should be independently verified.
+  </p>
+
+</div>
+        
 
     </footer>
   );

@@ -12,6 +12,9 @@ import SkylinePage from "./pages/properties/Skyline";
 import DowntownPage from "./pages/properties/DowntownPage";
 import OceanPage from "./pages/properties/OceanPage";
 import ContactUs from "./pages/contactus";
+import PrivacyPolicy from "./components/privacy";
+import TermsConditions from "./components/conditon";
+import TermsOfUse from "./components/use";
 
 function App() {
   return (
@@ -34,6 +37,9 @@ function App() {
           <Route path="/property/downtown" element={<DowntownPage/>}/>
           <Route path ="/property/ocean" element={<OceanPage/>}/>
           <Route path ="/contactus" element ={<ContactUs/>}/>
+         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
         </Routes>
 
       </div>
